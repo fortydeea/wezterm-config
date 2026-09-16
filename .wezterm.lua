@@ -6,6 +6,10 @@ local function is_windows()
 	return wezterm.target_triple:find("windows") ~= nil
 end
 
+local function is_windows_arm()
+	return wezterm.target_triple == "aarch64-pc-windows-msvc" or os.getenv("PROCESSOR_ARCHITECTURE") == "ARM64"
+end
+
 -- Start full screen
 wezterm.on("gui-startup", function(cmd)
 	local _, _, window = mux.spawn_window(cmd or {})
@@ -25,7 +29,12 @@ config.enable_tab_bar = true
 -- Animation
 config.animation_fps = 60
 config.max_fps = 60
-config.front_end = "WebGpu"
+
+if is_windows_arm() then
+	config.front_end = "WebGpu"
+else
+	config.front_end = "OpenGL"
+end
 
 -- Windows-specific: launch straight into WSL instead of PowerShell
 if is_windows() then
