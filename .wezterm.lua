@@ -1,9 +1,17 @@
 local wezterm = require("wezterm")
+local mux = wezterm.mux
 local config = wezterm.config_builder()
 
 local function is_windows()
 	return wezterm.target_triple:find("windows") ~= nil
 end
+
+-- Start full screen
+wezterm.on("gui-startup", function(cmd)
+	local _, _, window = mux.spawn_window(cmd or {})
+	local gui_window = window:gui_window()
+	gui_window:maximize()
+end)
 
 -- Font
 config.font = wezterm.font("Hack Nerd Font Mono")
