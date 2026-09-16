@@ -16,7 +16,7 @@ config.enable_tab_bar = true
 
 -- Windows-specific: launch straight into WSL instead of PowerShell
 if is_windows() then
-	config.default_domain = "WSL:Ubuntu" -- match your actual distro name from `wsl -l -v`
+	config.default_domain = "WSL:Debian"
 end
 
 -- Config auto-reloads on save by default (automatically_reload_config),
