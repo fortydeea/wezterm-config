@@ -17,6 +17,7 @@ config.enable_tab_bar = true
 -- Animation
 config.animation_fps = 60
 config.max_fps = 60
+config.front_end = "WebGpu"
 
 -- Windows-specific: launch straight into WSL instead of PowerShell
 if is_windows() then
