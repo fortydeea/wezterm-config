@@ -14,6 +14,10 @@ config.color_scheme = "DoomOne"
 config.window_background_opacity = 0.8
 config.enable_tab_bar = true
 
+-- Animation
+config.animation_fps = 60
+config.max_fps = 60
+
 -- Windows-specific: launch straight into WSL instead of PowerShell
 if is_windows() then
 	config.default_domain = "WSL:Debian"
