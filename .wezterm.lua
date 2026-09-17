@@ -10,6 +10,13 @@ local function is_windows_arm()
 	return wezterm.target_triple == "aarch64-pc-windows-msvc" or os.getenv("PROCESSOR_ARCHITECTURE") == "ARM64"
 end
 
+-- Disable close window/tab prompt
+config.window_close_confirmation = "NeverPrompt"
+
+wezterm.on("mux-is-process-stateful", function(proc)
+	return false -- never prompt, regardless of what's running in the pane
+end)
+
 -- Start full screen
 wezterm.on("gui-startup", function(cmd)
 	local _, _, window = mux.spawn_window(cmd or {})
