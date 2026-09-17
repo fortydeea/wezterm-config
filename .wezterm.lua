@@ -10,6 +10,18 @@ local function is_windows_arm()
 	return wezterm.target_triple == "aarch64-pc-windows-msvc" or os.getenv("PROCESSOR_ARCHITECTURE") == "ARM64"
 end
 
+-- Padding
+config.window_padding = {
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0,
+}
+
+config.use_resize_increments = true
+
+config.window_decorations = "RESIZE"
+
 -- Disable close window/tab prompt
 config.window_close_confirmation = "NeverPrompt"
 
