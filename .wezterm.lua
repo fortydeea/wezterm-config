@@ -22,7 +22,7 @@ config.font = wezterm.font("Hack Nerd Font Mono")
 config.font_size = 14
 
 -- Appearance
-config.color_scheme = "DoomOne"
+config.color_scheme = "PencilDark"
 config.window_background_opacity = 0.8
 config.enable_tab_bar = true
 
