@@ -20,7 +20,7 @@ config.window_padding = {
 
 config.use_resize_increments = true
 
-config.window_decorations = "RESIZE"
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- Disable close window/tab prompt
 config.window_close_confirmation = "NeverPrompt"
